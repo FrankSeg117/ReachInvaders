@@ -49,6 +49,11 @@ void ofApp::update(){
         
         else if(currentState->getNextState() == "BattleState"){
             SoundManager::playSong("battle", true);
+
+            EnemyManager::cleanUp();
+            battle = new ShipBattle();
+            battle->displayBossWarning = false;
+
             currentState = battle;
         }
 
