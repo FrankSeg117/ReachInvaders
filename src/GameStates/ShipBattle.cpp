@@ -49,7 +49,11 @@ void ShipBattle::update() {
 
     // State switching logic for when the player dies
     if (this->player->health <= 0) {
-        
+        if(this->player->lives != 0){//si quedan vidas, se resta una y se pone vida al max
+            player->health = 100;//Health back to max
+            player->lives--;//One life is deducted from counter
+        }       
+        if(this->player->lives == 0){ //If no lives remaining   
         this->setNextState("GameOverState");
         SoundManager::stopSong("battle");
         if(EnemyManager::getSpawningBossType() != ""){
@@ -62,6 +66,7 @@ void ShipBattle::update() {
                 scoreFile.close();
             }
             this->setFinished(true);
+        }
     }
 }
 
@@ -98,6 +103,9 @@ void ShipBattle::draw() {
         ofNoFill();
         ofDrawRectangle(ofGetWidth() - 150, 30, 50, 50);
         ofFill();
+
+    //Debugger
+    font.drawString("Lives: " + to_string(player->lives), 90, 30);
     
 }
 
