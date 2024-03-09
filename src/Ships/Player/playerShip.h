@@ -41,6 +41,8 @@ class Player{
         HitBox hitBox;                      // Hitbox for the player
         bool showHitbox = false;
 
+        bool sprinting = false;             // Verifier of sprinting
+        
     // === Constructors ===
         Player();                                      // Default Constructor
         Player(int Xposition, int Yposition);         // Parametrized Constructor for the playerShip

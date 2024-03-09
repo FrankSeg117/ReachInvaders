@@ -45,9 +45,12 @@ void Player::draw() {
 
 void Player::update() {
     processPressedKeys();  // Process the pressed keys and calculate orientation change
-
+    if(sprinting){
+    velocity.limit(2*maxSpeed);  //If sprinting the velocity limit will double  
+    }
+    else{
     velocity.limit(maxSpeed); // Limit the velocity to the maximum speed
-            
+    }       
     pos += velocity; // Update position based on velocity
     this->hitBox.box.setPosition(pos.x - 15, pos.y - 15);
             
@@ -97,6 +100,8 @@ void Player::processPressedKeys() {
     if(keyMap['d']) movement('d');
     if(keyMap['a']) movement('a');
 
+    if(keyMap[OF_KEY_SHIFT]) movement(OF_KEY_SHIFT);
+
     if(keyMap[' ']) shoot();
 
             
@@ -124,8 +129,17 @@ void Player::movement(char keyPressed) {
         }
 
     // Apply force to velocity
+    if(keyPressed == OF_KEY_SHIFT && 'w'){
+        sprinting = true;
+        velocity += 2*acceleration;
+    } 
+
+    else {
+    sprinting = false;
     velocity += acceleration;
-        
+    }
+
+    
     if (keyPressed == 'a') {
         // Rotate the ship counterclockwise
         shipOrientation -= rotationSpeed;
