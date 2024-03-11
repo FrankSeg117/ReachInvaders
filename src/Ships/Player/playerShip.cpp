@@ -11,6 +11,8 @@ Player::Player(int Xposition, int Yposition){
 
     velocity.set(0, 0);
     this->shipSprite.load("ShipModels/shipModel2.png");
+    this->shipSprite1.load("ShipModels/ShipLost_1live.png");
+    this->shipSprite2.load("ShipModels/ShipLost_2live.png");
 
     this->shipOrientation = 0;
     accelerationAmount = 5.0; // Adjust the value as needed
@@ -35,7 +37,9 @@ void Player::draw() {
             ofTranslate(this->pos.x, this->pos.y);
             ofRotateDeg(shipOrientation);
 
-            this->shipSprite.draw(-20, -20, 45, 45);
+            if(this->lives == 3){this->shipSprite.draw(-20, -20, 45, 45);}
+            if(this->lives == 2){this->shipSprite1.draw(-20, -20, 45, 45);}
+            if(this->lives == 1){this->shipSprite2.draw(-20, -20, 45, 45);}
 
             ofPopMatrix();
                 

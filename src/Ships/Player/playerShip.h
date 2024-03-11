@@ -10,6 +10,8 @@ class Player{
 
     private:
         ofImage shipSprite;                 // Sprite for the ship   
+        ofImage shipSprite1;
+        ofImage shipSprite2;
 
         int score;                          // Score of the player
 

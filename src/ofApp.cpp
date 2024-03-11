@@ -21,6 +21,7 @@ void ofApp::setup(){
     SoundManager::loadSong("button", "Sounds/buttonInteract.mp3");
     SoundManager::loadSong("bulletSound", "Sounds/shootingSound.mp3");
     SoundManager::loadSong("Beam", "Sounds/Laser_Beam.mp3");
+    SoundManager::loadSong("ShipWentBoom", "Sounds/Boom.mp3");
 
 //States
     intro = new IntroState();
@@ -61,7 +62,7 @@ void ofApp::update(){
             SoundManager::playSong("intro", true);
             currentState = gameOver;
         }
-        currentState->reset();
+    currentState->reset();
     }
 
 }
