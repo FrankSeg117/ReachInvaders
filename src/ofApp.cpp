@@ -43,7 +43,7 @@ void ofApp::update(){
 
     // State switching
     if(currentState->hasFinished()){
-        if(currentState->getNextState() == "IntroState") {
+        if(currentState->getNextState() == "IntroState"){
             SoundManager::playSong("intro", true);
             currentState = intro;    
         }
