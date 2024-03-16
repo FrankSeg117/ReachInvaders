@@ -52,8 +52,11 @@ void ShipBattle::update() {
         if(this->player->lives != 0){//si quedan vidas, se resta una y se pone vida al max
             player->health = 100;//Health back to max
             player->lives--;//One life is deducted from counter
+            SoundManager::playSong("ShipWentBoom", false);
+
         }       
-        if(this->player->lives == 0){ //If no lives remaining   
+        if(this->player->lives == 0){ //If no lives remaining
+        SoundManager::playSong("ShipWentBoom", false); 
         this->setNextState("GameOverState");
         SoundManager::stopSong("battle");
         if(EnemyManager::getSpawningBossType() != ""){
