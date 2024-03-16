@@ -5,6 +5,7 @@
 // Section for enemy types
 #include "EnemyCruiser.h"
 #include "EnemyVanguard.h"
+#include "EnemyTurtle.h"
 
 // Section for Bosses
 #include "ORT.h"

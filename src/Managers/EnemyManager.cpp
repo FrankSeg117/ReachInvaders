@@ -246,7 +246,12 @@ void EnemyManager::spawnEnemy(Player* player){
         }
 
         // Spawn regular enemies if no boss is being spawned
-        if (currentScore > 1500) {
+        ////////////////////////////////////////////
+        if (currentScore > 5000) {
+            enemyList.push_back(make_unique<EnemyTurtle>(spawnLocation.x, spawnLocation.y));
+        }
+        //////////////////////////////////////////// 
+        else if (currentScore > 1500) {
             enemyList.push_back(make_unique<EnemyVanguard>(spawnLocation.x, spawnLocation.y));
         } 
         else {
@@ -307,8 +312,8 @@ void EnemyManager::bossHasDied() {
 
 int EnemyManager::whichSpawnInterval(int playerScore) {
     // Simplified example, adjust intervals as needed
-    if (!bossIsActive && ortSeen) return 5;
-    if (!bossIsActive && ufoSeen) return 10;
+    if (!bossIsActive && ortSeen) return 50;
+    if (!bossIsActive && ufoSeen) return 70;
     if (bossIsActive) return 150; // Slower spawn rate if a boss is active
     if (playerScore < 1000) return 60; // Fast spawn rate for low scores
     if (playerScore < 5000) return 80; // Slower spawn as difficulty increases
