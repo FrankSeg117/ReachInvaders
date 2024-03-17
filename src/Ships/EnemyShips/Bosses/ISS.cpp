@@ -32,25 +32,11 @@ void ISS::draw() {
 
 void ISS::shoot() {
 
-    // const int numBullets = 18; // Increase the number of bullets for a smoother spiral
-    // const float angleStep = 360.0 / numBullets; // Ensure a full circle is covered
-    // for (int i = 0; i < numBullets; ++i) {
-    //     // Calculate the angle for each bullet, incorporating the shootAngleOffset
-    //     float angle = i * angleStep + shootAngleOffset;
-
-    //     // Create and initialize the bullet at the boss's position with the given angle
-    //     // Note: The angle is directly used in the Projectiles constructor
-    //     Projectiles bullet(shootingPoint, angle);
-    //     bullet.setSpeed(3);
-    //     bullet.setColors(ofColor::blueSteel, ofColor::darkBlue); // Set desired colors
-    //     enemyBullets.push_back(bullet);
-    // }   
-
     // Increment the shootAngleOffset for the next call to shoot() to continue the spiral
-    Projectiles bullet(shootingPoint, shootAngleOffset);
+    Projectiles bullet(shootingPoint, shootAngleOffset); // Bullet will shoot at the desired angle
     bullet.setColors(ofColor::blueSteel, ofColor::darkBlue);
     enemyBullets.push_back(bullet);
-    shootAngleOffset += 15.0; // Adjust this value for the desired spiral rotation speed
+    shootAngleOffset += 15.0; // This value sets the desired spiral rotation speed
 
     // Optional: Reset shootAngleOffset to keep it within 0-360 degrees to avoid overflow
     if(shootAngleOffset >= 360.0) {
