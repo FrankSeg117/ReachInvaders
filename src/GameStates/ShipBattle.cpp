@@ -125,7 +125,7 @@ void ShipBattle::keyPressed(int key) {
         player->showHitbox = !player->showHitbox;
     }
     if(key == 'o')  player->health = 100;
-    if(key == 'p')  playerScore += 1000; 
+    if(key == 'p')  playerScore += 10000; 
 }
 
 void ShipBattle::keyReleased(int key) {

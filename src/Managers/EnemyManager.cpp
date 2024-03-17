@@ -309,7 +309,7 @@ void EnemyManager::spawnBoss(const string& bossType) {
     //////////////////////////////////
     else if (bossType == "ISS Boss") {
         issSeen = true;
-        auto boss = make_unique<ISS>(ofGetWidth()/2, 20, "ISS Boss");
+        auto boss = make_unique<ISS>(ofGetWidth()/2 - 100, ofGetHeight()/2 -100, "ISS Boss");
         bossList.push_back(move(boss));
     }
     //////////////////////////////////
@@ -343,6 +343,7 @@ void EnemyManager::cleanUp() {
     bossList.clear();
     ufoSeen = false;
     ortSeen = false;
+    issSeen = false;
     bossHasDied();
 }
 
