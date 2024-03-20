@@ -64,6 +64,8 @@ public:
     // UI and feedback methods
     void healthBar(int currHealth, int maxHealth);          // Render the health bar
     void killSpreeTimer(int currTimer, int maxTimer);       // Render the kill spree timer
+    void shieldbar(int currShield, int maxShield);
+
     double killSpreeMode();                                 // Logic for kill spree mode
     double scoreMultiplier();                               // Calculate score multiplier based on game state
     void removeMarkedPlayerBullets();                       // Remove bullets marked for deletion

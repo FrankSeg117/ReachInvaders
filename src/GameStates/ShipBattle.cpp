@@ -101,6 +101,7 @@ void ShipBattle::draw() {
     // Draw UI elements
     healthBar(player->health, 100);
     killSpreeTimer(this->killspreeTimer, 150);
+    shieldbar(player->shield, player->maxshield);
     
     //Draw a mini box for the bomb. Make sure to draw the bomb inside this box.
         ofNoFill();
@@ -183,6 +184,16 @@ void ShipBattle::killSpreeTimer(int currTimer, int maxTimer) {
     ofFill();
     ofSetColor(ofColor::red);
     ofDrawRectangle(10, 90, currTimer, 10);
+    ofSetColor(ofColor::white);
+}
+
+void ShipBattle::shieldbar(int currShield, int maxShield){
+    indicatorFont.drawString("SHIELD", 10, 130);
+    ofNoFill();
+    ofDrawRectangle(10, 140, maxShield *1.5, 30);
+    ofFill();
+    ofSetColor(ofColor::blue);
+    ofDrawRectangle(10, 140, currShield *1.5, 30);
     ofSetColor(ofColor::white);
 }
 

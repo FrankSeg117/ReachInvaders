@@ -9,6 +9,9 @@ Player::Player(int Xposition, int Yposition){
     health = 100;
 
     lives = 3;
+    shield = 0;
+    maxshield = 100;
+    shieldtimer = 0;
 
     velocity.set(0, 0);
     this->shipSprite.load("ShipModels/shipModel2.png");
@@ -79,7 +82,16 @@ void Player::update() {
     velocity *= damping; // Apply damping to slow down the ship
 
     draw();  // Draw the ship
-
+    if (shieldactive){
+        shieldtimer++;
+        if(shieldtimer%10 == 0){
+            shield--;
+            shieldtimer = 0;
+        }
+        if (shield <=0){
+            shieldactive = false;
+        }
+    }
 }
 
 void Player::shoot() { 
@@ -99,6 +111,12 @@ void Player::shoot() {
             // Update the last shot time to the current time
             lastShotTime = currentTime;
         }
+}
+
+void Player::activateshield() { 
+    if (shield == maxshield && !shieldactive){
+        shieldactive = true;
+    }
 }
 
 void Player::setShotCooldown(float shotCooldown) { this->shotCooldown = shotCooldown; }
@@ -126,7 +144,8 @@ void Player::processPressedKeys() {
 
     if(keyMap[' ']) shoot();
 
-            
+    if(keyMap['q']) activateshield();
+
     if (!isMoving) {
         // Apply damping to gradually slow down the ship when no keys are being pressed
         velocity *= damping; 
