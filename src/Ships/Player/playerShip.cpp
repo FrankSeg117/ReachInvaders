@@ -20,7 +20,7 @@ Player::Player(int Xposition, int Yposition){
     hitBox =  HitBox(pos, shipSprite.getWidth() * 0.25, shipSprite.getHeight() * 0.15);
             
     lastShotTime = 0;
-    shotCooldown = 0.1;  // Set the cooldown duration to 0.5 seconds (adjust as needed)
+    shotCooldown = 0.2;  // Set the cooldown duration to 0.5 seconds (adjust as needed)
 
 }
 
