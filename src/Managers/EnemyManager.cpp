@@ -66,6 +66,20 @@ void EnemyManager::updateEnemies(Player* player){
 
 void EnemyManager::manageCollisions(Player* player) {
 
+  //////////////////////////////////////////////////////
+  //Handle collisions between player ship and enemy ship or boss
+    for (auto& enemy : enemyList) {
+        if(enemy->getHitBox()->isColliding(player->pos)){
+           player->health -= 1;  
+        }
+    }
+    for (auto& Boss : bossList) {
+        if(Boss->getHitBox()->isColliding(player->pos)){
+           player->health -= 3;  
+        }
+    }
+  //////////////////////////////////////////////////////
+
   // Handle collisions between player bullets and enemies
     for (auto& enemy : enemyList) {
             enemy->showHitboxes = toggleHitBoxes;

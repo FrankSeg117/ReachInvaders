@@ -31,4 +31,9 @@ class HitBox {
         bool isHit(Projectiles& bullet){
             return box.inside(bullet.position.x, bullet.position.y);          
         }
+
+        //Method that checks if player is inside the hitbox  of an enemy
+        bool isColliding(ofPoint pos){
+            return box.inside(pos.x, pos.y);
+        }
 };
