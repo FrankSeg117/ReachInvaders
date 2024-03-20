@@ -144,3 +144,22 @@ void ofApp::gotMessage(ofMessage msg) {
 
 //-------------------- Section for added utility methods -------
 
+
+/*
+
+Patch notes:
+    - For now the new ship appears after having 20000 points, before 1st boss it is impossible
+    to obtain more than that, so thats why that is the parameter
+    - Due to point obtaining system, first boss sky rockets points from 10000 to 30000, so the 
+    points to spawn other bosses were increased significantly
+    - Enemy damage reduced (No, its not cuz we were dying fast, there was just too many of'em shooting at once)
+
+Ideas:
+    - #1: Due tu new point requirements, lets add an interval in points were all enemies will spawn, nothing
+    big, an interval of like 3 to 5k points, just as a filler
+    - #2: add falling upgrades, like those ad games where now it shoots like 3 bullets for a while or
+    something like that, omnidirectional shoot etc.
+
+    (That's it for now)
+
+*/
