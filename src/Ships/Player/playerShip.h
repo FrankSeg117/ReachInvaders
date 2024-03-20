@@ -36,6 +36,9 @@ class Player{
        // === Public attributes ===
         int lives;                          // Added variable, live counter
         int health;                         // Needed in public for ease of use and direct access
+        int shield;                         //counter for shield powerup
+        int maxshield;   
+        int shieldtimer;                   //counter for max shield charge to help with ease of acces 
         int shipOrientation;                // Orientation of the ship
         unordered_map<int, bool> keyMap;    // A Map is used to handle the keys pressed
         vector<Projectiles> bullets;        // List of bullets
@@ -44,6 +47,7 @@ class Player{
         bool showHitbox = false;
 
         bool sprinting = false;             // Verifier of sprinting
+        bool shieldactive = false;          //Flag for shield activation
         
     // === Constructors ===
         Player();                                      // Default Constructor
@@ -76,6 +80,11 @@ class Player{
         method used for bullet removal.
     */
         void removeMarkedBullets();
+
+    /*
+        Added method to activate shield if requirements are met.
+    */
+        void activateshield();
  
     // === Input handling ===
         void addPressedKey(int key);         // Function to add a pressed key to the keyMap
