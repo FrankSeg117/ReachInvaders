@@ -17,6 +17,8 @@ Player::Player(int Xposition, int Yposition){
     this->shipSprite1.load("ShipModels/ShipLost_1live.png");
     this->shipSprite2.load("ShipModels/ShipLost_2live.png");
 
+    this->shieldsprite.load("CompressedImages/ForceShield.png");
+
     this->shipOrientation = 0;
     accelerationAmount = 5.0; // Adjust the value as needed
     score = 0;
@@ -44,6 +46,7 @@ void Player::draw() {
             if(this->lives == 2){this->shipSprite1.draw(-20, -20, 45, 45);}
             if(this->lives == 1){this->shipSprite2.draw(-20, -20, 45, 45);}
 
+            if(this->shieldactive){this->shieldsprite.draw(-20, -20, 45, 45);} //If shield is active draw shield around player
             ofPopMatrix();
                 
         // Draw the hitbox around the player ship. Uncomment this line for testing purposes

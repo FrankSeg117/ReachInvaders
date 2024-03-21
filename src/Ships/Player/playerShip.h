@@ -13,6 +13,8 @@ class Player{
         ofImage shipSprite1;
         ofImage shipSprite2;
 
+        ofImage shieldsprite;
+
         int score;                          // Score of the player
 
     // === Attributes related to movement ===
