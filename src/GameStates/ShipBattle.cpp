@@ -190,10 +190,10 @@ void ShipBattle::killSpreeTimer(int currTimer, int maxTimer) {
 void ShipBattle::shieldbar(int currShield, int maxShield){
     indicatorFont.drawString("SHIELD", 10, 130);
     ofNoFill();
-    ofDrawRectangle(10, 140, maxShield *1.5, 30);
+    ofDrawRectangle(10, 140, maxShield *1.8, 30);
     ofFill();
     ofSetColor(ofColor::blue);
-    ofDrawRectangle(10, 140, currShield *1.5, 30);
+    ofDrawRectangle(10, 140, currShield *1.8, 30);
     ofSetColor(ofColor::white);
 }
 
