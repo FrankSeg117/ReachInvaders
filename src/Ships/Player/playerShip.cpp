@@ -90,6 +90,7 @@ void Player::update() {
         }
         if (shield <=0){
             shieldactive = false;
+            SoundManager::stopSong("Shieldsound");
         }
     }
 }
@@ -116,6 +117,7 @@ void Player::shoot() {
 void Player::activateshield() { 
     if (shield == maxshield && !shieldactive){
         shieldactive = true;
+        SoundManager::playSong("Shieldsound", true);
     }
 }
 
