@@ -119,7 +119,7 @@ void EnemyManager::manageCollisions(Player* player) {
             }
         }
     }
-  // Handle collisions between player bullets and boss
+  // Handle collisions between player bullets and boss // 
     for (auto& Boss : bossList) {
         Boss->showHitboxes = toggleHitBoxes;
 

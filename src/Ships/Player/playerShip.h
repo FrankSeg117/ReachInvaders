@@ -53,6 +53,8 @@ class Player{
 
         bool sprinting = false;             // Verifier of sprinting
         bool shieldactive = false;          //Flag for shield activation
+
+        bool firstbossdefeated = false;     //Flag to determine if the first boss has been defeated so the new ship & projectiles can be used;
         
     // === Constructors ===
         Player();                                      // Default Constructor
