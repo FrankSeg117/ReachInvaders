@@ -27,7 +27,6 @@ class ShipBattle : public State {
 private:
     // Private members for internal state management
     vector<EnemyShip*> enemyList; // List of all enemy ships currently in the game
-    int playerScore;              // The player's current score
     int killspreeTimer;           // Timer for kill spree feature
     string nextState;             // The next state of the game
     ofTrueTypeFont font;          // Font for text rendering
@@ -35,6 +34,7 @@ private:
     ofImage backgroundImage;       // Background image of the game
 
 public:   
+    int playerScore;              // The player's current score
     // Public members accessible outside the class
     Player* player;                   // Pointer to the player's ship
     bool displayBossWarning;          // Flag to display boss warning

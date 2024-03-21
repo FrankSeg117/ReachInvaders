@@ -148,7 +148,7 @@ void EnemyManager::manageCollisions(Player* player) {
         for (auto& bullet : Boss->getBullets()) {
             if (!bullet.bulletIsOutOfBounds() && player->hitBox.isHit(bullet) && !player->shieldactive)  {
 
-                player->health = max(player->health - 10.0, 0.0);       // Player takes damage 
+                player->health = max(player->health - 5.0, 0.0);       // Player takes damage 
                 bullet.markForDeletion(); // Mark bullet for deletion
             }
             else if (!bullet.bulletIsOutOfBounds() && player->hitBox.isHit(bullet) && player->shieldactive) {
@@ -265,12 +265,12 @@ void EnemyManager::spawnEnemy(Player* player){
                 initiateBossSpawn("ISS Boss");
                 issSeen = true;}
             ///////////////////////////////////////////////////
-            else if (currentScore > 50000 && !ufoSeen) {
+            else if (currentScore > 80000 && !ufoSeen) {
                 // Spawn UFO ORT
                 initiateBossSpawn("Galactica Supercell ORT");
                 ufoSeen = true; // Prevent multiple spawns
             }
-            else if (currentScore > 75000 && !ortSeen) {
+            else if (currentScore > 150000 && !ortSeen) {
                 // Spawn ORT Xibalba
                 initiateBossSpawn("ORT Xibalba");
                 ortSeen = true; // Prevent multiple spawns
@@ -279,14 +279,14 @@ void EnemyManager::spawnEnemy(Player* player){
 
         // Spawn regular enemies if no boss is being spawned
         ////////////////////////////////////////////
-        if (currentScore > 5000) {
+        if (currentScore >= 5000) {
             enemyList.push_back(make_unique<EnemyTurtle>(spawnLocation.x, spawnLocation.y));
         }
         //////////////////////////////////////////// 
-        else if (currentScore > 1500) {
+        else if (currentScore >= 3000) {
             enemyList.push_back(make_unique<EnemyVanguard>(spawnLocation.x, spawnLocation.y));
         } 
-        else {
+        else if(currentScore >= 0) {
             enemyList.push_back(make_unique<EnemyCruiser>(spawnLocation.x, spawnLocation.y));
         }
 
@@ -354,9 +354,9 @@ int EnemyManager::whichSpawnInterval(int playerScore) {
     // Simplified example, adjust intervals as needed
     if (!bossIsActive && ortSeen) return 50;
     if (!bossIsActive && ufoSeen) return 70;
-    if (bossIsActive) return 200; // Slower spawn rate if a boss is active
-    if (playerScore < 1000) return 60; // Fast spawn rate for low scores
-    if (playerScore < 5000) return 80; // Slower spawn as difficulty increases
+    if (bossIsActive) return 400; // Slower spawn rate if a boss is active
+    if (playerScore < 1000) return 50; // Fast spawn rate for low scores
+    if (playerScore < 5000) return 90; // Slower spawn as difficulty increases
 
 
     return 100; // Default slowest spawn rate for very high scores or when a boss is likely

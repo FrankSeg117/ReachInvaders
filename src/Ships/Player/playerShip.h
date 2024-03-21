@@ -12,6 +12,9 @@ class Player{
         ofImage shipSprite;                 // Sprite for the ship   
         ofImage shipSprite1;
         ofImage shipSprite2;
+        ofImage NewShip;
+        ofImage NewShipL1;
+        ofImage NewShipL2;
 
         ofImage shieldsprite;
 

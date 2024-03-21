@@ -1,5 +1,6 @@
 #include "playerShip.h"
-
+#include "EnemyManager.h"
+#include "ShipBattle.h"
 
 //Parametrized Constructor for the playerShip
 Player::Player(int Xposition, int Yposition){
@@ -19,13 +20,19 @@ Player::Player(int Xposition, int Yposition){
 
     this->shieldsprite.load("CompressedImages/ForceShield.png");
 
+    //////////////////////////////////////////////////////
+    this->NewShip.load("ShipModels/secondShip.png");
+    this->NewShipL1.load("ShipModels/Ship2_L1Live.png");
+    this->NewShipL2.load("ShipModels/Ship2_L2Live.png");
+    //////////////////////////////////////////////////////
+
     this->shipOrientation = 0;
     accelerationAmount = 5.0; // Adjust the value as needed
     score = 0;
     hitBox =  HitBox(pos, shipSprite.getWidth() * 0.25, shipSprite.getHeight() * 0.15);
             
     lastShotTime = 0;
-    shotCooldown = 0.2;  // Set the cooldown duration to 0.5 seconds (adjust as needed)
+    shotCooldown = 0.13;  // Set the cooldown duration to 0.5 seconds (adjust as needed)
 
 }
 
@@ -42,10 +49,18 @@ void Player::draw() {
             ofTranslate(this->pos.x, this->pos.y);
             ofRotateDeg(shipOrientation);
 
+//////////////////////////////////////////////////////////////////////////////////////////
+        if(score <= 20000){
             if(this->lives == 3){this->shipSprite.draw(-20, -20, 45, 45);}
             if(this->lives == 2){this->shipSprite1.draw(-20, -20, 45, 45);}
             if(this->lives == 1){this->shipSprite2.draw(-20, -20, 45, 45);}
-
+        }
+        if(score > 20000){
+            if(this->lives == 3){this->NewShip.draw(-20, -20, 45, 45);}
+            if(this->lives == 2){this->NewShipL1.draw(-20, -20, 45, 45);}
+            if(this->lives == 1){this->NewShipL2.draw(-20, -20, 45, 45);}
+        }
+//////////////////////////////////////////////////////////////////////////////////////////
             if(this->shieldactive){this->shieldsprite.draw(-20, -20, 45, 45);} //If shield is active draw shield around player
             ofPopMatrix();
                 
