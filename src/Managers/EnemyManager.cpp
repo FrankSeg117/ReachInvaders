@@ -264,16 +264,16 @@ void EnemyManager::spawnEnemy(Player* player){
         // Check if it's time to spawn a boss
         if (!bossIsActive) { // Ensure no boss is currently active before spawning another
             ///////////////////////////////////////////////////
-            if(currentScore > 10000 && !issSeen){
+            if(currentScore >= 10000 && !issSeen){
                 initiateBossSpawn("ISS Boss");
                 issSeen = true;}
             ///////////////////////////////////////////////////
-            else if (currentScore > 80000 && !ufoSeen) {
+            else if (currentScore >= 50000 && !ufoSeen) {
                 // Spawn UFO ORT
                 initiateBossSpawn("Galactica Supercell ORT");
                 ufoSeen = true; // Prevent multiple spawns
             }
-            else if (currentScore > 150000 && !ortSeen) {
+            else if (currentScore >= 75000 && !ortSeen) {
                 // Spawn ORT Xibalba
                 initiateBossSpawn("ORT Xibalba");
                 ortSeen = true; // Prevent multiple spawns
