@@ -132,6 +132,9 @@ void EnemyManager::manageCollisions(Player* player) {
                 if (Boss->isDead()) {                   //If the boss has died from a bullet
                     if(!player->shieldactive){player->shield = min(player->shield + 25, player->maxshield);} //Shields charges greatly if not active if boss is defeated
                     SoundManager::stopSong(whichBoss);
+                    if(whichBoss == "ISS Boss"){
+                       player->firstbossdefeated = true; 
+                    }
                     SoundManager::playSong("battle", false);
                     bossHasDied();
                     SoundManager::playSong("shipDestroyed", false);

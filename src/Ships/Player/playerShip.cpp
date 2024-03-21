@@ -50,12 +50,12 @@ void Player::draw() {
             ofRotateDeg(shipOrientation);
 
 //////////////////////////////////////////////////////////////////////////////////////////
-        if(score <= 20000){
+        if(!firstbossdefeated){
             if(this->lives == 3){this->shipSprite.draw(-20, -20, 45, 45);}
             if(this->lives == 2){this->shipSprite1.draw(-20, -20, 45, 45);}
             if(this->lives == 1){this->shipSprite2.draw(-20, -20, 45, 45);}
         }
-        if(score > 20000){
+        if(firstbossdefeated){
             if(this->lives == 3){this->NewShip.draw(-20, -20, 45, 45);}
             if(this->lives == 2){this->NewShipL1.draw(-20, -20, 45, 45);}
             if(this->lives == 1){this->NewShipL2.draw(-20, -20, 45, 45);}
