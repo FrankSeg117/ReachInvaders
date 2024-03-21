@@ -15,7 +15,7 @@ Projectiles::Projectiles(ofPoint p, float angle, int dmg) {
     this->angle = angle;
     width = 7;
     height = 12;
-    speed = 10;
+    speed = 15;
     damage = dmg;
     markedForDeletion = false;
 }

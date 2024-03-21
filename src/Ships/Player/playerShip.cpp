@@ -49,7 +49,6 @@ void Player::draw() {
             ofTranslate(this->pos.x, this->pos.y);
             ofRotateDeg(shipOrientation);
 
-//////////////////////////////////////////////////////////////////////////////////////////
         if(!firstbossdefeated){
             if(this->lives == 3){this->shipSprite.draw(-20, -20, 45, 45);}
             if(this->lives == 2){this->shipSprite1.draw(-20, -20, 45, 45);}
@@ -60,7 +59,6 @@ void Player::draw() {
             if(this->lives == 2){this->NewShipL1.draw(-20, -20, 45, 45);}
             if(this->lives == 1){this->NewShipL2.draw(-20, -20, 45, 45);}
         }
-//////////////////////////////////////////////////////////////////////////////////////////
             if(this->shieldactive){this->shieldsprite.draw(-20, -20, 45, 45);} //If shield is active draw shield around player
             ofPopMatrix();
                 
@@ -80,6 +78,10 @@ void Player::update() {
     this->hitBox.box.setPosition(pos.x - 15, pos.y - 15);
             
     velocity *= damping; // Apply damping to slow down the ship
+
+    if(firstbossdefeated){
+        shotCooldown = 0.1; //faster fire rate for new ship
+    }
 
     draw();  // Draw the ship
     if (shieldactive){
@@ -101,11 +103,16 @@ void Player::shoot() {
 
     // Check if enough time has passed since the last shot
         if (currentTime - lastShotTime >= shotCooldown) {
-
+            if(firstbossdefeated){
+                Projectiles p = Projectiles(ofPoint(this->pos.x, this->pos.y), this->shipOrientation, 19);
+                p.setColors(ofColor::lightGoldenRodYellow, ofColor::whiteSmoke);
+                this->bullets.push_back(p);
+            }
+            else {
                 Projectiles p = Projectiles(ofPoint(this->pos.x, this->pos.y), this->shipOrientation);
                 p.setColors(ofColor::azure, ofColor::blueViolet);
                 this->bullets.push_back(p);
-
+            }            
             // SoundManager::playSong("bulletSound", false);
             SoundManager::playSong("Beam", false);
 
