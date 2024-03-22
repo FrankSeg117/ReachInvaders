@@ -16,7 +16,7 @@ class Player{
         ofImage NewShipL1;
         ofImage NewShipL2;
         ofImage shieldsprite;
-        ofImage shieldIndicator;
+        // ofImage shieldIndicator;
 
         int score;                          // Score of the player
 
@@ -55,10 +55,11 @@ class Player{
         bool shieldactive = false;          //Flag for shield activation
 
         bool firstbossdefeated = false;     //Flag to determine if the first boss has been defeated so the new ship & projectiles can be used;
-        bool bossDefeeated = false;
+        bool bossDefeeated = false; 
 
-        int bombCount;                  // In case bombs are unused you can accumulate them, cooldown shall be added
-        int bombTimer;
+        int bombCount;                  // In case bombs are unused you can accumulate them, cooldown shall be added 
+        int bombTimer; 
+        bool bombactive = false;                //flag for bomb activation
 
     // === Constructors ===
         Player();                                      // Default Constructor
@@ -100,7 +101,7 @@ class Player{
     /*
         Added method to activate the bomb
     */
-        void activateBomb();
+        void activateBomb();   
 
     // === Input handling ===
         void addPressedKey(int key);         // Function to add a pressed key to the keyMap

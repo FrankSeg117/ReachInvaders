@@ -1,5 +1,4 @@
 #include "EnemyManager.h"
-#include "playerShip.h"
 
 // Define static members here
 
@@ -39,6 +38,27 @@ void EnemyManager::updateEnemies(Player* player){
             // Time to spawn the boss
             spawnBoss(whichBoss); // This actually spawns the boss in the world
         }
+    }
+
+    //If player activated a bomb enemy vector will get cleared and 
+    if (player->bombactive){
+        enemyList.clear();
+        for (auto& Boss : bossList){
+            Boss->takeDamage(200);
+                if (Boss->isDead()) {                   //If the boss has died from a bomb
+                    if(!player->shieldactive){player->shield = min(player->shield + 25, player->maxshield);} //Shields charges greatly if not active if boss is defeated
+                    SoundManager::stopSong(whichBoss);
+                    if(whichBoss == "ISS Boss"){player->firstbossdefeated = true;}
+                    player->bombCount++; 
+                    SoundManager::playSong("battle", false);
+                    bossHasDied();
+                    SoundManager::playSong("shipDestroyed", false);
+                    pointsPerUpdateCycle += Boss->getPoints();
+                    resetKillSpreeTimer(150);
+                }            
+        }
+    player->bombCount--;
+    player->bombactive = false;
     }
 
     // Handle enemy spawning logic
@@ -133,14 +153,12 @@ void EnemyManager::manageCollisions(Player* player) {
                 if (Boss->isDead()) {                   //If the boss has died from a bullet
                     if(!player->shieldactive){player->shield = min(player->shield + 25, player->maxshield);} //Shields charges greatly if not active if boss is defeated
                     SoundManager::stopSong(whichBoss);
-                    if(whichBoss == "ISS Boss"){
-                       player->firstbossdefeated = true; 
-                    }
+                    if(whichBoss == "ISS Boss"){player->firstbossdefeated = true;}
+                    player->bombCount++; 
                     SoundManager::playSong("battle", false);
                     bossHasDied();
                     SoundManager::playSong("shipDestroyed", false);
                     pointsPerUpdateCycle += Boss->getPoints();
-                    player->bombCount++;
                     resetKillSpreeTimer(150);
                 }
 

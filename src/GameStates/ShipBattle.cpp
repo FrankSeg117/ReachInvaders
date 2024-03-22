@@ -12,7 +12,7 @@ ShipBattle::ShipBattle() {
     font.load("Fonts/Orbitron.ttf", 20, true);
     indicatorFont.load("Fonts/Orbitron.ttf", 10, true);
     backgroundImage.load("Menu_Images/BattleArea.jpg");
-
+    BombSprite.load("ShipModels/Bomb.png");             //Bomb sprite for the bomb indicator
 }
 
 // ====================================
@@ -103,15 +103,18 @@ void ShipBattle::draw() {
     killSpreeTimer(this->killspreeTimer, 150);
     shieldbar(player->shield, player->maxshield);
     
+    
     //Draw a mini box for the bomb. Make sure to draw the bomb inside this box.
-        ofNoFill();
-        ofDrawRectangle(ofGetWidth() - 150, 30, 50, 50);
+        ofNoFill(); 
+        ofDrawRectangle(ofGetWidth() - 150, 30, 50, 50); 
         ofFill();
-        
+        if (player->bombCount > 0){
+            BombSprite.draw(ofGetWidth() - 165, 15, 80, 80);
+        }
     //Debugger
     font.drawString("Lives: " + to_string(player->lives), 90, 30);
-    font.drawString("Bombs: " + to_string(player->bombCount), 220, 30);
-     
+    font.drawString("Bombs: " + to_string(player->bombCount), 220, 30); 
+    
 }
 
 // ====================================

@@ -13,7 +13,7 @@ Player::Player(int Xposition, int Yposition){
     maxshield = 100;
     shieldtimer = 0;
 
-    bombCount = 0;
+    bombCount = 0; 
     bombTimer = 0;
 
     velocity.set(0, 0);
@@ -22,13 +22,12 @@ Player::Player(int Xposition, int Yposition){
     this->shipSprite2.load("ShipModels/ShipLost_2live.png");
 
     this->shieldsprite.load("CompressedImages/ForceShield.png");
-    shieldIndicator.load("ShipModels/Shield.png");
+    // shieldIndicator.load("ShipModels/Shield.png");
 
-    //////////////////////////////////////////////////////
+    
     this->NewShip.load("ShipModels/secondShip.png");
     this->NewShipL1.load("ShipModels/Ship2_L1Live.png");
     this->NewShipL2.load("ShipModels/Ship2_L2Live.png");
-    //////////////////////////////////////////////////////
 
     this->shipOrientation = 0;
     accelerationAmount = 5.0; // Adjust the value as needed
@@ -63,13 +62,13 @@ void Player::draw() {
             if(this->lives == 2){this->NewShipL1.draw(-20, -20, 45, 45);}
             if(this->lives == 1){this->NewShipL2.draw(-20, -20, 45, 45);}
         }
-            if(this->shieldactive){this->shieldsprite.draw(-20, -20, 50, 50);} //If shield is active draw shield around player
+            if(this->shieldactive){this->shieldsprite.draw(-20, -20, 45, 45);} //If shield is active draw shield around player
             ofPopMatrix();
                 
         // Draw the hitbox around the player ship. Uncomment this line for testing purposes
             if(showHitbox)  this->hitBox.draw();
 
-            if(shieldactive) shieldIndicator.draw(ofGetWidth() -145, 35, 40, 40);
+            // if(shieldactive) shieldIndicator.draw(ofGetWidth() -145, 35, 40, 40);
 }
 
 void Player::update() {
@@ -101,6 +100,7 @@ void Player::update() {
             SoundManager::stopSong("Shieldsound");
         }
     }
+    if (bombTimer > 0) bombTimer--;
 }
 
 void Player::shoot() { 
@@ -135,8 +135,11 @@ void Player::activateshield() {
 }
 
 void Player::activateBomb(){
-    SoundManager::playSong("Bomb", false);
-    EnemyManager::enemyList.clear();
+    if(bombCount > 0 && bombTimer <=0 && !bombactive){
+    bombactive = true;
+    SoundManager::playSong("Bomb", false); 
+    bombTimer = 600;
+    } 
 }
 
 
@@ -165,10 +168,7 @@ void Player::processPressedKeys() {
 
     if(keyMap['q']) activateshield();
 
-    if(keyMap['e'] && bombCount != 0){
-        activateBomb();
-        bombCount--;
-    }
+    if(keyMap['e']) activateBomb();
 
 
     if (!isMoving) {

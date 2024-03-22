@@ -32,7 +32,7 @@ private:
     ofTrueTypeFont font;          // Font for text rendering
     ofTrueTypeFont indicatorFont; // Font for text rendering in regards 
     ofImage backgroundImage;       // Background image of the game
-
+    ofImage BombSprite;
 public:   
     int playerScore;              // The player's current score
     // Public members accessible outside the class
@@ -65,7 +65,7 @@ public:
     void healthBar(int currHealth, int maxHealth);          // Render the health bar
     void killSpreeTimer(int currTimer, int maxTimer);       // Render the kill spree timer
     void shieldbar(int currShield, int maxShield);
-    void bombCounter();
+    // void bombCounter(); no hace falta
 
     double killSpreeMode();                                 // Logic for kill spree mode
     double scoreMultiplier();                               // Calculate score multiplier based on game state
