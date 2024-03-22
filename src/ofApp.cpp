@@ -1,4 +1,5 @@
 #include "ofApp.h"
+// #include "playerShip.cpp"
 
 
 //--------------------------------------------------------------
@@ -24,6 +25,7 @@ void ofApp::setup(){
     SoundManager::loadSong("ShipWentBoom", "Sounds/Boom.mp3");
     SoundManager::loadSong("ISS Boss", "Sounds/SpaceStationBoss.mp3");
     SoundManager::loadSong("Shieldsound","Sounds/ShieldSound.mp3");
+    SoundManager::loadSong("Bomb", "Sounds/NewBombSound.mp3");
 //States
     intro = new IntroState();
     battle = new ShipBattle();

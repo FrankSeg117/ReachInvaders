@@ -107,11 +107,11 @@ void ShipBattle::draw() {
         ofNoFill();
         ofDrawRectangle(ofGetWidth() - 150, 30, 50, 50);
         ofFill();
-
+        
     //Debugger
     font.drawString("Lives: " + to_string(player->lives), 90, 30);
     font.drawString("Bombs: " + to_string(player->bombCount), 220, 30);
-    
+     
 }
 
 // ====================================

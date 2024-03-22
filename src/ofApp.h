@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "playerShip.h"
 #include "State.h"
 #include "SoundManager.h"
 #include "ShipBattle.h"

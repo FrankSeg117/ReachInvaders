@@ -22,6 +22,7 @@ Player::Player(int Xposition, int Yposition){
     this->shipSprite2.load("ShipModels/ShipLost_2live.png");
 
     this->shieldsprite.load("CompressedImages/ForceShield.png");
+    shieldIndicator.load("ShipModels/Shield.png");
 
     //////////////////////////////////////////////////////
     this->NewShip.load("ShipModels/secondShip.png");
@@ -67,6 +68,8 @@ void Player::draw() {
                 
         // Draw the hitbox around the player ship. Uncomment this line for testing purposes
             if(showHitbox)  this->hitBox.draw();
+
+            if(shieldactive) shieldIndicator.draw(ofGetWidth() -145, 35, 40, 40);
 }
 
 void Player::update() {
@@ -132,27 +135,22 @@ void Player::activateshield() {
 }
 
 void Player::activateBomb(){
-    if(bombCount != 0){
+    SoundManager::playSong("Bomb", false);
     EnemyManager::enemyList.clear();
-    bombCount--;
-    // Add the projectile
-    }
-    if(Boss)
 }
+
 
 void Player::setShotCooldown(float shotCooldown) { this->shotCooldown = shotCooldown; }
 
 void Player::removeMarkedBullets(){
-    bullets.erase(remove_if(bullets.begin(), bullets.end(),
-                        [](const Projectiles& p) { return p.markedForDeletion; }),
-    bullets.end());
+    bullets.erase(remove_if(bullets.begin(), bullets.end(), [](const Projectiles& p) { return p.markedForDeletion; }), bullets.end());
 }
 
 void Player::addPressedKey(int key) {
     key = tolower(key);
 
     keyMap[key] = true;
-    isMoving = true; // Set the movement flag
+    isMoving = true; // Set the movement flagw
 }
 
 void Player::processPressedKeys() {
@@ -167,7 +165,11 @@ void Player::processPressedKeys() {
 
     if(keyMap['q']) activateshield();
 
-    if(keyMap['e']) activateBomb();
+    if(keyMap['e'] && bombCount != 0){
+        activateBomb();
+        bombCount--;
+    }
+
 
     if (!isMoving) {
         // Apply damping to gradually slow down the ship when no keys are being pressed
