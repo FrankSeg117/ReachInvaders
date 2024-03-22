@@ -65,7 +65,7 @@ public:
     void healthBar(int currHealth, int maxHealth);          // Render the health bar
     void killSpreeTimer(int currTimer, int maxTimer);       // Render the kill spree timer
     void shieldbar(int currShield, int maxShield);
-    // void bombCounter(); no hace falta
+    void bombCooldown(int cooldownduration, int maxduration);
 
     double killSpreeMode();                                 // Logic for kill spree mode
     double scoreMultiplier();                               // Calculate score multiplier based on game state

@@ -102,8 +102,9 @@ void ShipBattle::draw() {
     healthBar(player->health, 100);
     killSpreeTimer(this->killspreeTimer, 150);
     shieldbar(player->shield, player->maxshield);
-    
-    
+    if(player->bombTimer > 0){
+    bombCooldown(player->bombTimer, 600);
+    }
     //Draw a mini box for the bomb. Make sure to draw the bomb inside this box.
         ofNoFill(); 
         ofDrawRectangle(ofGetWidth() - 150, 30, 50, 50); 
@@ -198,6 +199,16 @@ void ShipBattle::shieldbar(int currShield, int maxShield){
     ofFill();
     ofSetColor(ofColor::blue);
     ofDrawRectangle(10, 140, currShield *1.8, 30);
+    ofSetColor(ofColor::white);
+}
+
+void ShipBattle::bombCooldown(int cooldownduration, int maxduration) {
+    indicatorFont.drawString("Cooling Down", 10, 190);
+    ofNoFill();
+    ofDrawRectangle(10, 200, maxduration *.25, 10);
+    ofFill();
+    ofSetColor(ofColor::orangeRed);
+    ofDrawRectangle(10, 200, cooldownduration *.25, 10);
     ofSetColor(ofColor::white);
 }
 
