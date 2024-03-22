@@ -13,6 +13,9 @@ Player::Player(int Xposition, int Yposition){
     maxshield = 100;
     shieldtimer = 0;
 
+    bombCount = 0;
+    bombTimer = 0;
+
     velocity.set(0, 0);
     this->shipSprite.load("ShipModels/shipModel2.png");
     this->shipSprite1.load("ShipModels/ShipLost_1live.png");
@@ -59,7 +62,7 @@ void Player::draw() {
             if(this->lives == 2){this->NewShipL1.draw(-20, -20, 45, 45);}
             if(this->lives == 1){this->NewShipL2.draw(-20, -20, 45, 45);}
         }
-            if(this->shieldactive){this->shieldsprite.draw(-20, -20, 45, 45);} //If shield is active draw shield around player
+            if(this->shieldactive){this->shieldsprite.draw(-20, -20, 50, 50);} //If shield is active draw shield around player
             ofPopMatrix();
                 
         // Draw the hitbox around the player ship. Uncomment this line for testing purposes
@@ -128,6 +131,15 @@ void Player::activateshield() {
     }
 }
 
+void Player::activateBomb(){
+    if(bombCount != 0){
+    EnemyManager::enemyList.clear();
+    bombCount--;
+    // Add the projectile
+    }
+    if(Boss)
+}
+
 void Player::setShotCooldown(float shotCooldown) { this->shotCooldown = shotCooldown; }
 
 void Player::removeMarkedBullets(){
@@ -154,6 +166,8 @@ void Player::processPressedKeys() {
     if(keyMap[' ']) shoot();
 
     if(keyMap['q']) activateshield();
+
+    if(keyMap['e']) activateBomb();
 
     if (!isMoving) {
         // Apply damping to gradually slow down the ship when no keys are being pressed

@@ -1,4 +1,5 @@
 #include "EnemyManager.h"
+#include "playerShip.h"
 
 // Define static members here
 
@@ -139,6 +140,7 @@ void EnemyManager::manageCollisions(Player* player) {
                     bossHasDied();
                     SoundManager::playSong("shipDestroyed", false);
                     pointsPerUpdateCycle += Boss->getPoints();
+                    player->bombCount++;
                     resetKillSpreeTimer(150);
                 }
 

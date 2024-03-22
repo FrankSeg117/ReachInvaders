@@ -55,7 +55,11 @@ class Player{
         bool shieldactive = false;          //Flag for shield activation
 
         bool firstbossdefeated = false;     //Flag to determine if the first boss has been defeated so the new ship & projectiles can be used;
-        
+        bool bossDefeeated = false;
+
+        int bombCount;                  // In case bombs are unused you can accumulate them, cooldown shall be added
+        int bombTimer;
+
     // === Constructors ===
         Player();                                      // Default Constructor
         Player(int Xposition, int Yposition);         // Parametrized Constructor for the playerShip
@@ -92,7 +96,12 @@ class Player{
         Added method to activate shield if requirements are met.
     */
         void activateshield();
- 
+
+    /*
+        Added method to activate the bomb
+    */
+        void activateBomb();
+
     // === Input handling ===
         void addPressedKey(int key);         // Function to add a pressed key to the keyMap
         void processPressedKeys();          //Function that will process if the value of the keys inside the Map are being pressed 

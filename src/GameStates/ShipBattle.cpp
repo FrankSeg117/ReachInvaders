@@ -110,6 +110,7 @@ void ShipBattle::draw() {
 
     //Debugger
     font.drawString("Lives: " + to_string(player->lives), 90, 30);
+    font.drawString("Bombs: " + to_string(player->bombCount), 220, 30);
     
 }
 
