@@ -25,4 +25,8 @@ Any project that doesn't compile will receive a 0.
 If a partner has no commits in the repositories, they'll will receive a 0.
 
 ## Student Notes
-If you have any notes to add for your TA about the project specs or creative additions, you may do so in this section of the README:
+We have added:
+- New sounds, as well as readjusted the current ones them for better quality (Better shooting, bombexplosion, loss of a life)
+- New new png for the bomb, while also adding a cooldown for the bomb that displays on screen so the player cannot spam it. 
+- New shield indicator on screen
+- Readjusted game progression so scores do not climb up as fast as to have not a so short or too long of an experience.
