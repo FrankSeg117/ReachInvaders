@@ -111,7 +111,7 @@ void Player::shoot() {
     // Check if enough time has passed since the last shot
         if (currentTime - lastShotTime >= shotCooldown) {
             if(firstbossdefeated){
-                Projectiles p = Projectiles(ofPoint(this->pos.x, this->pos.y), this->shipOrientation, 19);
+                Projectiles p = Projectiles(ofPoint(this->pos.x, this->pos.y), this->shipOrientation, 18);
                 p.setColors(ofColor::lightGoldenRodYellow, ofColor::whiteSmoke);
                 this->bullets.push_back(p);
             }

@@ -1,6 +1,6 @@
 #include "EnemyTurtle.h"
 
-EnemyTurtle::EnemyTurtle(int xpos, int ypos) : EnemyShip(xpos, ypos, 0.5, 20, 100) {
+EnemyTurtle::EnemyTurtle(int xpos, int ypos) : EnemyShip(xpos, ypos, 0.5, 20, 150) {
     amIBoss = false;
     enemyShipSprite.load("ShipModels/EnemyTurtle.png");
     enemyShipSprite.rotate90(2);
