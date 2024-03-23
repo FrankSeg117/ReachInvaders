@@ -109,6 +109,11 @@ void ShipBattle::draw() {
         ofNoFill(); 
         ofDrawRectangle(ofGetWidth() - 150, 30, 50, 50); 
         ofFill();
+
+        ofNoFill(); 
+        ofDrawRectangle(ofGetWidth() -150, 85, 50, 50); 
+        ofFill();
+        
         if (player->bombCount > 0){
             BombSprite.draw(ofGetWidth() - 165, 15, 80, 80);
         }
@@ -223,9 +228,9 @@ double ShipBattle::killSpreeMode() {
 
 double ShipBattle::scoreMultiplier() {
     // Logic for score multiplier based on current score
-    if (playerScore >= 350) return 3.5;
-    else if (playerScore >= 200) return 2.5;
-    else if (playerScore >= 100) return 1.5;
+    if (playerScore >= 75000) return 3.5;
+    else if (playerScore >= 25000) return 2.5;
+    else if (playerScore >= 5000) return 1.5;
     else return 1.0; // Default multiplier
 }
 

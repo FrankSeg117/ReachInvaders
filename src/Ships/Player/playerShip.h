@@ -16,7 +16,7 @@ class Player{
         ofImage NewShipL1;
         ofImage NewShipL2;
         ofImage shieldsprite;
-        // ofImage shieldIndicator;
+        ofImage shieldIndicator;
 
         int score;                          // Score of the player
 

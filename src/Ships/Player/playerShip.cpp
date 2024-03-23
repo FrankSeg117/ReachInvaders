@@ -22,7 +22,7 @@ Player::Player(int Xposition, int Yposition){
     this->shipSprite2.load("ShipModels/ShipLost_2live.png");
 
     this->shieldsprite.load("CompressedImages/ForceShield.png");
-    // shieldIndicator.load("ShipModels/Shield.png");
+    shieldIndicator.load("ShipModels/Shield.png");
 
     
     this->NewShip.load("ShipModels/secondShip.png");
@@ -68,7 +68,8 @@ void Player::draw() {
         // Draw the hitbox around the player ship. Uncomment this line for testing purposes
             if(showHitbox)  this->hitBox.draw();
 
-            // if(shieldactive) shieldIndicator.draw(ofGetWidth() -145, 35, 40, 40);
+            if(shieldactive && bombCount != 0) shieldIndicator.draw(ofGetWidth() -145, 90, 40, 40);
+            if(shieldactive) shieldIndicator.draw(ofGetWidth() -145, 35, 40, 40);
 }
 
 void Player::update() {
