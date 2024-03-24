@@ -1,9 +1,9 @@
 #include "GameOverState.h"
 //Use maps instead of a vector
 GameOverState::GameOverState(){
-    titleImage.load("Menu_Images/introWallpaper.jpg");
-    titleFont.load("Fonts/Orbitron.ttf", 50);
-    textFont.load("Fonts/Orbitron.ttf", 30);
+    titleImage.load("Menu_Images/GameOver.jpg");
+    titleFont.load("Fonts/Halo.ttf", 50);
+    textFont.load("Fonts/Halo.ttf", 30);
 
     Button* PlayButton = new Button(ofGetWidth()/2 - 100, ofGetHeight() * 3/4, 200, 50, "", "Play Again");
 

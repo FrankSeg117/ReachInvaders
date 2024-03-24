@@ -2,9 +2,9 @@
 
 EnemyTurtle::EnemyTurtle(int xpos, int ypos) : EnemyShip(xpos, ypos, 0.5, 20, 150) {
     amIBoss = false;
-    enemyShipSprite.load("ShipModels/EnemyTurtle.png");
+    enemyShipSprite.load("ShipModels/Phantom.png");
     enemyShipSprite.rotate90(2);
-    enemyHitBox = new HitBox(pos, enemyShipSprite.getWidth() * 0.1, enemyShipSprite.getHeight() * 0.1);
+    enemyHitBox = new HitBox(pos, enemyShipSprite.getWidth() * 0.1, enemyShipSprite.getHeight() * 0.08);
 }
 
 void EnemyTurtle::update(const ofPoint& playerPos) {

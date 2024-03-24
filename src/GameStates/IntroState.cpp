@@ -1,11 +1,17 @@
 #include "IntroState.h"
 //Use maps instead of a vector
 IntroState::IntroState(){
-    titleImage.load("Menu_Images/introWallpaper.jpg");
-    font.load("Fonts/Orbitron.ttf", 50);
+    titleImage.load("Menu_Images/Halo.png");
+
+    // int w = 1200;
+    // int h = 800;
+
+    // titleImage.resize(w, h);
+
+    font.load("Fonts/Halo.ttf", 50);
 
     Button* PlayButton = new Button(ofGetWidth()/2 - 100, ofGetHeight()/2, 200, 50, "", "Play");
-    Button* PlayButton2 = new Button(ofGetWidth()/2 - 100, ofGetHeight()/2 + 100, 200, 50, "", "Hey There!");
+    Button* PlayButton2 = new Button(ofGetWidth()/2 - 100, ofGetHeight()/2 + 100, 200, 50, "", "Push me!");
 
     buttons.push_back(PlayButton);
     buttons.push_back(PlayButton2);
@@ -18,6 +24,10 @@ void IntroState::update() {
         this->setFinished(true);
     }
 
+    if(buttons[1]->wasPressed()){          // This is the other button
+        SoundManager::playSong("yay", false);
+    }
+
    for(Button* button : buttons) {
         button->update();
     }
@@ -28,7 +38,7 @@ void IntroState::update() {
 void IntroState::draw(){
     ofSetBackgroundColor(ofColor::black);
     titleImage.draw((ofGetWidth() - titleImage.getWidth())/2, (ofGetHeight() - titleImage.getHeight())/2);
-    font.drawString("Supercell Invaders", ofGetWidth()/4 - 50, ofGetHeight()/4 + 100);
+    font.drawString("Reach Invaders", ofGetWidth()/4 - 50, ofGetHeight()/4 + 100);
 
     //Draws All of the Buttons 
         for(Button* button : buttons){

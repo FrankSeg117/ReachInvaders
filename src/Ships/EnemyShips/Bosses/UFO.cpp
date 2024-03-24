@@ -1,9 +1,9 @@
 #include "UFO.h"
 
 
-UFO::UFO(int xpos, int ypos, string name) : Boss(xpos, ypos, 0.5, 500, name) {
-    enemyShipSprite.load("ShipModels/ORT_UFO_BOSS.png");
-    enemyHitBox = new HitBox(pos.x - 10, pos.y, enemyShipSprite.getWidth() * 0.60, enemyShipSprite.getHeight() * 0.5);
+UFO::UFO(int xpos, int ypos, string name) : Boss(xpos, ypos, 0.5, 800, name) {
+    enemyShipSprite.load("ShipModels/Carrier.png");
+    enemyHitBox = new HitBox(pos.x - 10, pos.y, enemyShipSprite.getWidth() * 0.6, enemyShipSprite.getHeight() * 0.3);
 
 
     shootingPoint = ofPoint(enemyShipSprite.getWidth() / 2, enemyShipSprite.getHeight() );

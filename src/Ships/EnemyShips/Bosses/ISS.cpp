@@ -1,7 +1,7 @@
 #include "ISS.h"
 
-ISS::ISS(int xpos, int ypos, string name) : Boss(xpos, ypos, 0.5, 400, name) {
-    enemyShipSprite.load("ShipModels/Space_Station.png");
+ISS::ISS(int xpos, int ypos, string name) : Boss(xpos, ypos, 0.5, 450, name) {
+    enemyShipSprite.load("ShipModels/CovDestroyer.png");
     enemyHitBox = new HitBox(pos.x, pos.y - 30, enemyShipSprite.getWidth() * 0.475, enemyShipSprite.getHeight() * 0.475);
 
     shootingPoint = ofPoint(pos.x + enemyHitBox->box.getWidth()/2 - 10, pos.y + enemyHitBox->box.getHeight() / 2);

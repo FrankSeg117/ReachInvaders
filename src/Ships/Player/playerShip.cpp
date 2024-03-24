@@ -17,22 +17,35 @@ Player::Player(int Xposition, int Yposition){
     bombTimer = 0;
 
     velocity.set(0, 0);
-    this->shipSprite.load("ShipModels/shipModel2.png");
-    this->shipSprite1.load("ShipModels/ShipLost_1live.png");
-    this->shipSprite2.load("ShipModels/ShipLost_2live.png");
+    // this->shipSprite.load("ShipModels/shipModel2.png");
+    // this->shipSprite1.load("ShipModels/ShipLost_1live.png");
+    // this->shipSprite2.load("ShipModels/ShipLost_2live.png");
 
     this->shieldsprite.load("CompressedImages/ForceShield.png");
     shieldIndicator.load("ShipModels/Shield.png");
 
     
-    this->NewShip.load("ShipModels/secondShip.png");
-    this->NewShipL1.load("ShipModels/Ship2_L1Live.png");
-    this->NewShipL2.load("ShipModels/Ship2_L2Live.png");
+    // this->NewShip.load("ShipModels/secondShip.png");
+    // this->NewShipL1.load("ShipModels/Ship2_L1Live.png");
+    // this->NewShipL2.load("ShipModels/Ship2_L2Live.png");
+
+    ////////////////////////////////////////////////////////////////
+
+    this->shipSprite.load("ShipModels/PelicanA.png");
+    this->shipSprite1.load("ShipModels/ShipL1.png");
+    this->shipSprite2.load("ShipModels/ShipL2.png");
+
+    this->NewShip.load("ShipModels/BetterShip.png");
+    this->NewShipL1.load("ShipModels/BShipL2.png");
+    this->NewShipL2.load("ShipModels/BShipL2.png");
+
+    ////////////////////////////////////////////////////////////////
+
 
     this->shipOrientation = 0;
     accelerationAmount = 5.0; // Adjust the value as needed
     score = 0;
-    hitBox =  HitBox(pos, shipSprite.getWidth() * 0.25, shipSprite.getHeight() * 0.15);
+    hitBox =  HitBox(pos, shipSprite.getWidth() * 0.1, shipSprite.getHeight() * 0.1);
             
     lastShotTime = 0;
     shotCooldown = 0.13;  // Set the cooldown duration to 0.5 seconds (adjust as needed)

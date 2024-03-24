@@ -13,8 +13,15 @@ void ofApp::setup(){
         add the name of the song and the path to it using the SoundManager::loadSong function as shown below.
     */
 
-    SoundManager::loadSong("intro", "Sounds/Great_Void_Sea_Battle.mp3");
-    SoundManager::loadSong("battle", "Sounds/Clashing_Waves.mp3");
+    /////////////////////////////////////////////////////////////////////////////////
+
+    // SoundManager::loadSong("intro", "bin/data/HALO/Music/HALOce.mp3");
+    // SoundManager::loadSong("battle", "bin/data/HALO/Music/Combat.mp3");
+
+    /////////////////////////////////////////////////////////////////////////////////
+
+    SoundManager::loadSong("intro", "Sounds/HALOce.mp3");
+    SoundManager::loadSong("battle", "Sounds/Combat.mp3");
     SoundManager::loadSong("shipDestroyed", "Sounds/shipExplosion.wav");
     SoundManager::loadSong("ORT Xibalba", "Sounds/ORT_Xibalba.mp3");
     SoundManager::loadSong("Galactica Supercell ORT", "Sounds/ORT_UFO.mp3");
@@ -25,6 +32,9 @@ void ofApp::setup(){
     SoundManager::loadSong("ISS Boss", "Sounds/SpaceStationBoss.mp3");
     SoundManager::loadSong("Shieldsound","Sounds/ShieldSound.mp3");
     SoundManager::loadSong("Bomb", "Sounds/NewBombSound.mp3"); 
+    SoundManager::loadSong("yay", "Sounds/yay.mp3");
+
+
 //States
     intro = new IntroState();
     battle = new ShipBattle();
@@ -146,21 +156,5 @@ void ofApp::gotMessage(ofMessage msg) {
 //-------------------- Section for added utility methods -------
 
 
-/*
 
-Patch notes:
-    - For now the new ship appears after having 20000 points, before 1st boss it is impossible
-    to obtain more than that, so thats why that is the parameter
-    - Due to point obtaining system, first boss sky rockets points from 10000 to 30000, so the 
-    points to spawn other bosses were increased significantly
-    - Enemy damage reduced (No, its not cuz we were dying fast, there was just too many of'em shooting at once)
 
-Ideas:
-    - #1: Due tu new point requirements, lets add an interval in points were all enemies will spawn, nothing
-    big, an interval of like 3 to 5k points, just as a filler
-    - #2: add falling upgrades, like those ad games where now it shoots like 3 bullets for a while or
-    something like that, omnidirectional shoot etc.
-
-    (That's it for now)
-
-*/

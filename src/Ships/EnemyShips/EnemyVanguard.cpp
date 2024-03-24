@@ -3,9 +3,9 @@
 
 EnemyVanguard::EnemyVanguard(int xpos, int ypos) : EnemyShip(xpos, ypos, 3.5, 10, 75) {
     amIBoss = false;
-    enemyShipSprite.load("ShipModels/EnemyVanguard.png");
+    enemyShipSprite.load("ShipModels/Seraph.png");
     enemyShipSprite.rotate90(2);
-    enemyHitBox = new HitBox(pos, enemyShipSprite.getWidth() * 0.1, enemyShipSprite.getHeight() * 0.1);
+    enemyHitBox = new HitBox(pos, enemyShipSprite.getWidth() * 0.08, enemyShipSprite.getHeight() * 0.06);
 }
 
 void EnemyVanguard::update(const ofPoint& playerPos) {

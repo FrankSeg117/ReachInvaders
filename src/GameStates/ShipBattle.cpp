@@ -9,9 +9,15 @@ ShipBattle::ShipBattle() {
     this->playerScore = 0;
     this->killspreeTimer = 0;
     
-    font.load("Fonts/Orbitron.ttf", 20, true);
-    indicatorFont.load("Fonts/Orbitron.ttf", 10, true);
-    backgroundImage.load("Menu_Images/BattleArea.jpg");
+    font.load("Fonts/Halo.ttf", 20, true);
+    indicatorFont.load("Fonts/Halo.ttf", 10, true);
+    backgroundImage.load("Menu_Images/In-game.jpg");
+
+    // int w = 1200;
+    // int h = 800;
+
+    // backgroundImage.resize(w, h);
+
     BombSprite.load("ShipModels/Bomb.png");             //Bomb sprite for the bomb indicator
 }
 
@@ -118,9 +124,13 @@ void ShipBattle::draw() {
             BombSprite.draw(ofGetWidth() - 165, 15, 80, 80);
         }
     //Debugger
-    font.drawString("Lives: " + to_string(player->lives), 90, 30);
-    font.drawString("Bombs: " + to_string(player->bombCount), 220, 30); 
+    font.drawString("Lives: " + to_string(player->lives), 100, 30);
+    font.drawString("Bombs: " + to_string(player->bombCount), 250, 30); 
     
+    if(playerScore <= 25000) font.drawString("Covenant ships inbound!", 10, 220);
+    else if(playerScore > 25000 && playerScore <= 75000) font.drawString("Current Mission... \nFIGHT THEM AWAY!", 10, 220);
+    else if(playerScore > 75000) font.drawString("Current Mission... \nSURVIVE NOBLE", 10, 220);
+
 }
 
 // ====================================
@@ -136,7 +146,7 @@ void ShipBattle::keyPressed(int key) {
         player->showHitbox = !player->showHitbox;
     }
     if(key == 'o')  player->health = 100;
-    if(key == 'p')  playerScore += 10000; 
+    if(key == 'p')  playerScore += 1000; 
 }
 
 void ShipBattle::keyReleased(int key) {
@@ -228,9 +238,15 @@ double ShipBattle::killSpreeMode() {
 
 double ShipBattle::scoreMultiplier() {
     // Logic for score multiplier based on current score
-    if (playerScore >= 75000) return 3.5;
-    else if (playerScore >= 25000) return 2.5;
-    else if (playerScore >= 5000) return 1.5;
+    if (playerScore >= 75000){
+        return 3.50;
+    }
+    else if (playerScore >= 25000) {
+        return 2.25;
+    }
+    else if (playerScore >= 5000) {
+        return 1.75;
+    }
     else return 1.0; // Default multiplier
 }
 

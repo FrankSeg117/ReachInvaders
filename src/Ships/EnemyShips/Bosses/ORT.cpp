@@ -1,8 +1,8 @@
 #include "ORT.h"
 
-ORT::ORT(int xpos, int ypos, string name) : Boss(xpos, ypos,0.5, 750, name) {
-    enemyShipSprite.load("CompressedImages/ORT_Xibalba-min.png");
-    enemyHitBox = new HitBox(pos.x, pos.y - 30, enemyShipSprite.getWidth() * 0.05, enemyShipSprite.getHeight() * 0.075);
+ORT::ORT(int xpos, int ypos, string name) : Boss(xpos, ypos,0.5, 650, name) {
+    enemyShipSprite.load("ShipModels/Guardian.png");
+    enemyHitBox = new HitBox(pos.x, pos.y - 30, enemyShipSprite.getWidth() * 0.28, enemyShipSprite.getHeight() * 0.4);
     
     shootingPoint = ofPoint(pos.x + enemyHitBox->box.getWidth(), pos.y + enemyHitBox->box.getHeight() / 2);
     

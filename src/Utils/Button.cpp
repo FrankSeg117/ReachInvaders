@@ -9,7 +9,7 @@ Button::Button(int xPos, int yPos, int width, int height, string imagePath, stri
     this->textToDisplay = text;
     this->pressed = false;
 
-    font.load("Fonts/Orbitron.ttf", 20); // To make the text show pretty.
+    font.load("Fonts/Halo.ttf", 20); // To make the text show pretty.
 
 }
 

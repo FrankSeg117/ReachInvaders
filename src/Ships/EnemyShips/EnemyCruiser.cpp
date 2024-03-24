@@ -2,8 +2,8 @@
 
 EnemyCruiser::EnemyCruiser(int xpos, int ypos) : EnemyShip(xpos, ypos, 1.0, 10, 50) {
     amIBoss = false;
-    enemyShipSprite.load("CompressedImages/EnemyCruiser-min.png");
-    enemyHitBox = new HitBox(pos, enemyShipSprite.getWidth() * 0.03, enemyShipSprite.getHeight() * 0.03);
+    enemyShipSprite.load("ShipModels/Banshee(fondo).png");
+    enemyHitBox = new HitBox(pos, enemyShipSprite.getWidth() * 0.07, enemyShipSprite.getHeight() * 0.07);
 }
 
 
