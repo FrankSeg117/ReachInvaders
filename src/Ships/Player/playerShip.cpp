@@ -125,12 +125,12 @@ void Player::shoot() {
         if (currentTime - lastShotTime >= shotCooldown) {
             if(firstbossdefeated){
                 Projectiles p = Projectiles(ofPoint(this->pos.x, this->pos.y), this->shipOrientation, 18);
-                p.setColors(ofColor::lightGoldenRodYellow, ofColor::whiteSmoke);
+                p.setColors(ofColor::orangeRed, ofColor::orange);
                 this->bullets.push_back(p);
             }
             else {
                 Projectiles p = Projectiles(ofPoint(this->pos.x, this->pos.y), this->shipOrientation);
-                p.setColors(ofColor::azure, ofColor::blueViolet);
+                p.setColors(ofColor::orangeRed, ofColor::yellow);
                 this->bullets.push_back(p);
             }            
             // SoundManager::playSong("bulletSound", false);

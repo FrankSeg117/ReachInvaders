@@ -42,10 +42,10 @@ void EnemyTurtle::draw() {
 void EnemyTurtle::shoot() {
     // Create a new projectile and add it to the list of bullets
     Projectiles p = Projectiles(pos - 10, shipOrientation + 90);
-    p.setColors(ofColor::limeGreen, ofColor::white);
+    p.setColors(ofColor::limeGreen, ofColor::lightGreen);
 
     Projectiles q = Projectiles(pos + 10, shipOrientation + 90);
-    q.setColors(ofColor::limeGreen, ofColor::white);
+    q.setColors(ofColor::limeGreen, ofColor::lightGreen);
 
     enemyBullets.push_back(p);
     enemyBullets.push_back(q);

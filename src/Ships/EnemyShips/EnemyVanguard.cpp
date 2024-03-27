@@ -42,7 +42,7 @@ void EnemyVanguard::draw() {
 void EnemyVanguard::shoot() {
     // Create a new projectile and add it to the list of bullets
     Projectiles p = Projectiles(pos, shipOrientation + 90);
-    p.setColors(ofColor::red, ofColor::orange);
+    p.setColors(ofColor::lightBlue, ofColor::cyan);
     enemyBullets.push_back(p);
     SoundManager::playSong("bulletSound", false);
 }

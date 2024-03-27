@@ -102,7 +102,7 @@ void UFO::shoot() {
 
         // Bullet creation code remains the same
         Projectiles bullet(ofPoint(shootingPoint.x, shootingPoint.y), angle);
-        bullet.setColors(ofColor::red, ofColor::orange); // Set desired colors
+        bullet.setColors(ofColor::lightBlue, ofColor::cyan); // Set desired colors
         enemyBullets.push_back(bullet);
         SoundManager::playSong("bulletSound", false);
     }

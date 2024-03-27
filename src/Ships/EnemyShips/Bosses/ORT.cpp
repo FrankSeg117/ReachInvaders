@@ -25,7 +25,7 @@ ORT::ORT(int xpos, int ypos, string name) : Boss(xpos, ypos,0.5, 650, name) {
 void ORT::update(const ofPoint& playerPos) {
     // pos.x += speed;
     enemyHitBox->box.setPosition(pos.x + 10, pos.y - 30);   // Update the hitbox to follow the boss
-    shootingPoint = ofPoint(pos.x + enemyHitBox->box.getWidth(), pos.y + enemyHitBox->box.getHeight() / 2);   // Update the shooting point
+    shootingPoint = ofPoint(pos.x + enemyHitBox->box.getWidth() /2, pos.y + enemyHitBox->box.getHeight() / 2);   // Update the shooting point
 
 
     // Update the switch position
@@ -64,7 +64,7 @@ void ORT::draw() {
     ofPushMatrix();
     ofTranslate(pos.x, pos.y);
     // ofRotateDeg(shipOrientation);
-    enemyShipSprite.draw(-32, -32, 200, 200);
+    enemyShipSprite.draw(-13, -32, 200, 200);
     ofPopMatrix();
     
     // Uncomment this if you want to see the hitbox for the enemy
