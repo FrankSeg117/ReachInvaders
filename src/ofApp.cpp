@@ -38,6 +38,10 @@ void ofApp::setup(){
     SoundManager::loadSong("pelicanshoot","Sounds/falcon_turret2_10.wav");
     SoundManager::loadSong("sabershoot","Sounds/hornet_chain_gun1.wav");
 
+    SoundManager::setVolume("pelicanshoot", .3);
+    SoundManager::setVolume("sabershoot", .4);
+
+
 
 
 //States
