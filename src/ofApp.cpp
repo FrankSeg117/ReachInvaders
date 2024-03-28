@@ -33,6 +33,8 @@ void ofApp::setup(){
     SoundManager::loadSong("Shieldsound","Sounds/ShieldSound.mp3");
     SoundManager::loadSong("Bomb", "Sounds/NewBombSound.mp3"); 
     SoundManager::loadSong("yay", "Sounds/yay.mp3");
+    SoundManager::loadSong("lightplasma","Sounds/banshee_fire.wav");
+    SoundManager::loadSong("heavyplasma","Sounds/banshee_cannon_fire.wav");
 
 
 //States

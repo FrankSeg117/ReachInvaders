@@ -39,7 +39,7 @@ void GameOverState::draw(){
     titleImage.draw((ofGetWidth() - titleImage.getWidth())/2, (ofGetHeight() - titleImage.getHeight())/2);
     
     // Display the scores
-    titleFont.drawString("GAME OVER", ofGetWidth()/4 + 75, 100);
+    titleFont.drawString("GAME OVER", ofGetWidth()/4, 100);
 
     textFont.drawString("High Score: ", ofGetWidth()/4 - 200, ofGetHeight()/4 + 120);
     textFont.drawString(to_string(HighScore), ofGetWidth() * 3/4, ofGetHeight()/4 + 120);

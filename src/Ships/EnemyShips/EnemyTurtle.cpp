@@ -1,6 +1,6 @@
 #include "EnemyTurtle.h"
 
-EnemyTurtle::EnemyTurtle(int xpos, int ypos) : EnemyShip(xpos, ypos, 0.5, 20, 150) {
+EnemyTurtle::EnemyTurtle(int xpos, int ypos) : EnemyShip(xpos, ypos, 0.5, 20, 250) {
     amIBoss = false;
     enemyShipSprite.load("ShipModels/Phantom.png");
     enemyShipSprite.rotate90(2);
@@ -50,5 +50,5 @@ void EnemyTurtle::shoot() {
     enemyBullets.push_back(p);
     enemyBullets.push_back(q);
 
-    SoundManager::playSong("bulletSound", false);
+    SoundManager::playSong("heavyplasma", false);
 }

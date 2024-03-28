@@ -127,9 +127,9 @@ void ShipBattle::draw() {
     font.drawString("Lives: " + to_string(player->lives), 100, 30);
     font.drawString("Bombs: " + to_string(player->bombCount), 250, 30); 
     
-    if(playerScore <= 25000) font.drawString("Covenant ships inbound!", 10, 220);
-    else if(playerScore > 25000 && playerScore <= 75000) font.drawString("Current Mission... \nFIGHT THEM AWAY!", 10, 220);
-    else if(playerScore > 75000) font.drawString("Current Mission... \nSURVIVE NOBLE", 10, 220);
+    if(playerScore <= 25000) font.drawString("Covenant ships inbound!", 10, 250);
+    else if(playerScore > 25000 && playerScore <= 75000) font.drawString("Current Mission... \nFIGHT THEM AWAY!", 10, 250);
+    else if(playerScore > 75000) font.drawString("Current Mission... \nSURVIVE NOBLE", 10, 250);
 
 }
 

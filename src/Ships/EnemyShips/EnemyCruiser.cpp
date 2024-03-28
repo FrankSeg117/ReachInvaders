@@ -46,5 +46,5 @@ void EnemyCruiser::shoot() {
         Projectiles p = Projectiles(pos, shipOrientation + 90);
         p.setColors(ofColor::lightBlue, ofColor::cyan);
         enemyBullets.push_back(p);
-        SoundManager::playSong("bulletSound", false);
+        SoundManager::playSong("lightplasma", false);
 }

@@ -38,7 +38,7 @@ void IntroState::update() {
 void IntroState::draw(){
     ofSetBackgroundColor(ofColor::black);
     titleImage.draw((ofGetWidth() - titleImage.getWidth())/2, (ofGetHeight() - titleImage.getHeight())/2);
-    font.drawString("Reach Invaders", ofGetWidth()/4 - 50, ofGetHeight()/4 + 100);
+    font.drawString("Reach Invaders", ofGetWidth()/4, ofGetHeight()/4 + 100);
 
     //Draws All of the Buttons 
         for(Button* button : buttons){
