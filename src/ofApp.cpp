@@ -35,6 +35,9 @@ void ofApp::setup(){
     SoundManager::loadSong("yay", "Sounds/yay.mp3");
     SoundManager::loadSong("lightplasma","Sounds/banshee_fire.wav");
     SoundManager::loadSong("heavyplasma","Sounds/banshee_cannon_fire.wav");
+    SoundManager::loadSong("pelicanshoot","Sounds/falcon_turret2_10.wav");
+    SoundManager::loadSong("sabershoot","Sounds/hornet_chain_gun1.wav");
+
 
 
 //States

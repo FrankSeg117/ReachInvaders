@@ -127,15 +127,17 @@ void Player::shoot() {
                 Projectiles p = Projectiles(ofPoint(this->pos.x, this->pos.y), this->shipOrientation, 18);
                 p.setColors(ofColor::orangeRed, ofColor::orange);
                 this->bullets.push_back(p);
+                SoundManager::playSong("sabershoot", false);
+
             }
             else {
                 Projectiles p = Projectiles(ofPoint(this->pos.x, this->pos.y), this->shipOrientation);
                 p.setColors(ofColor::orangeRed, ofColor::yellow);
                 this->bullets.push_back(p);
+                SoundManager::playSong("pelicanshoot", false);
             }            
             // SoundManager::playSong("bulletSound", false);
-            SoundManager::playSong("Beam", false);
-
+        
             // Update the last shot time to the current time
             lastShotTime = currentTime;
         }
