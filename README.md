@@ -30,3 +30,11 @@ We have added:
 - New new png for the bomb, while also adding a cooldown for the bomb that displays on screen so the player cannot spam it. 
 - New shield indicator on screen
 - Readjusted game progression so scores do not climb up as fast as to have not a so short or too long of an experience.
+
+BONUS:
+-We have made a total converison of the game, with one of our favorite universes, Halo!
+-Changed every enemy, boss, and player sprites, to fit with the theme.
+-Changed menus, background images.
+-Changed main songs, shot sounds for every enemy
+-Player shot sounds for their respective ship.
+-Also added a little easter egg in the main menu!
