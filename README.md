@@ -10,13 +10,7 @@ Base code developed by: Armando Cruz, Jomard Concepcion & Christian Perez
 3. To run the project using the included debug configurations you must make sure to change the debugging program attribute for the corresponding configuration according to your OS. The executable will have the same name as this repository, and if on Windows, it 
 will end in ".exe"
 
-## Submitting Assignment
-To submit this assignment, create a Release with the branch that holds all the changes you have added. If no Release is made, the last commit to the master branch will be graded.
-
-Don't forget that you must also fill out an evaluation form in Moodle to consider the project submitted.
-
-## Grading
-
+## Team
 Partner 1: (802-23-9143) (Tomas Esteban Gomez Mojica) (tomas.gomez1@upr.edu)
 Partner 2: (802-21-6247) (FRANK A. SEGUI) (frank.segui1@upr.edu)
 
