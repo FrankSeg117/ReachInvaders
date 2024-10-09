@@ -14,10 +14,6 @@ will end in ".exe"
 Partner 1: (802-23-9143) (Tomas Esteban Gomez Mojica) (tomas.gomez1@upr.edu)
 Partner 2: (802-21-6247) (FRANK A. SEGUI) (frank.segui1@upr.edu)
 
-Any project that doesn't compile will receive a 0.
-
-If a partner has no commits in the repositories, they'll will receive a 0.
-
 ## Student Notes
 We have added:
 - New sounds, as well as readjusted the current ones them for better quality (Better shooting, bombexplosion, loss of a life)
